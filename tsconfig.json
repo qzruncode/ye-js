@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "target": "es5", // 目标js环境
+      "module": "esnext", // 模块系统
+      "strict": true, // 严格模式
+      "importHelpers": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true, // 允许 module.exports
+      "allowSyntheticDefaultImports": true, // 允许写法 import React from "react";
+      "baseUrl": ".",
+      "resolveJsonModule": true, // 允许导入 json 文件
+      "outDir": "lib",
+      "paths": {
+        "@/*": [ // 解析文件的相对路径
+          "src/*"
+        ]
+      },
+      "lib": [ // 指定类型库
+        "ESNext",
+        "DOM",
+        "ScriptHost"
+      ]
+    },
+    "exclude": [
+        "node_modules",
+        "build",
+        "env",
+        "config",
+        "example",
+        "static"
+    ]
+}
+  
