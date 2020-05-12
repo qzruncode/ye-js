@@ -1,5 +1,10 @@
 ## design mode
 
+## import 
+```
+import { DesignMode } from 'ye-js';
+```
+
 ### observer mode
 ```
 const obj1 = [1];
