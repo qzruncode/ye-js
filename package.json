@@ -1,6 +1,6 @@
 {
   "name": "ye-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "encapsulating js language",
   "main": "lib/index",
   "scripts": {
