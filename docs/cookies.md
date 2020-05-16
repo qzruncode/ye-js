@@ -7,7 +7,12 @@ import { Cookies } from 'ye-js';
 
 ### all
 ```
-Cookies.all(); // [[key, value], ...]
+Cookies.all(); // {key: value, ...}
+```
+
+### entries
+```
+Cookies.entries(); // [[key, value], ...]
 ```
 
 ### get

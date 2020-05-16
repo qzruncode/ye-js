@@ -10,6 +10,19 @@ interface Options {
 const Cookies = {
     all: () => {
         if(document.cookie == ''){
+            return {};
+        }else {
+            return document.cookie
+                .split(';')
+                .map(v => v.split('='))
+                .reduce((acc: any, v: string[]) => {
+                    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+                    return acc;
+                }, {});
+        }
+    },
+    entries: () => {
+        if(document.cookie == ''){
             return [];
         }else {
             return document.cookie.split('; ').map(item => item.split('='))

@@ -9,23 +9,15 @@ const path = require('path');
 
 function generatePlugins(mode) {
     const config = [
+        new HtmlWebpackPlugin({ template: './example/index.html'}), // 生成html文件
+        new webpack.HotModuleReplacementPlugin(), // 开启HMR
+        new dotenv({ path: `./env/.env.development`, }), // 环境变量配置文件
         new webpack.BannerPlugin({ banner: 'created by yejiawei' }), // 添加一个内容到所有的输出文件的顶部
         new CopyPlugin([ { from: 'static', to: 'static' }, { from: 'docs', to: 'docs' }]), // 复制文件或者文件夹
         new webpack.DefinePlugin({ VERSION: JSON.stringify('v1'),}), // 定义全局变量，字符串必须使用嵌套的字符串引用；全局直接访问 VERSION 即可
         new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }), // 将小于指定字节数的模块合并
         new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['**/*'] }), // 清空dist目录下的所有文件夹
     ];
-    if(mode === 'development') {
-        config.unshift(new HtmlWebpackPlugin({ template: './example/index.html'})); // 生成html文件)
-        config.unshift(new webpack.HotModuleReplacementPlugin()); // 开启HMR
-        config.unshift(new dotenv({ path: `./env/.env.development`, })); // 环境变量配置文件
-    }else {
-        config.unshift(new MiniCssExtractPlugin({
-            filename: `css/[name].[contenthash].css`,
-            chunkFilename: `css/[name].[chunkhash].css`,
-        })) // 提取css到单独的文件中
-        config.unshift(new dotenv({ path: `./env/.env.production`, })) // 环境变量配置文件
-    }
     return config;
 }
 
@@ -35,16 +27,9 @@ function generateLoaders(mode) {
         localIdentName: '',
         fileStyle: '',
     }
-    if(mode === 'development') {
-        hashMode = 'hash'
-        cssConf.localIdentName = '[path][name]__[local]--[hash:base64:5]';
-        cssConf.fileStyle = 'style-loader';
-    }else {
-        hashMode = 'contenthash';
-        cssConf.localIdentName = '[hash:base64]';
-        cssConf.fileStyle = 'style-loader';
-        cssConf.fileStyle = MiniCssExtractPlugin.loader;
-    }
+    hashMode = 'hash'
+    cssConf.localIdentName = '[path][name]__[local]--[hash:base64:5]';
+    cssConf.fileStyle = 'style-loader';
 
     const config = [
         { test: /\.txt$/i, exclude: /node_modules/, use: 'raw-loader', }, // 将文件使用字符串导入

@@ -3,12 +3,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const helper = require('./helper.config');
 const mode = process.env.NODE_ENV;
-let modeConfig = null;
-if(mode == 'development') {
-    modeConfig = require('./dev.config');
-}else {
-    modeConfig = require('./pro.config');
-}
+let modeConfig = require('./dev.config');
 
 const commonConfig = {
     target: "web",
