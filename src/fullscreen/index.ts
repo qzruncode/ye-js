@@ -1,8 +1,3 @@
-interface GetOptions {
-    timeout: number,
-
-}
-
 const Fullscreen = {
     use: (dom: HTMLElement) => {
         if(dom) {
