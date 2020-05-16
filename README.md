@@ -9,5 +9,6 @@ This project will gradually enhance js, encapsulate common functions, make devel
 + [cookies](./docs/cookies.md)
 + [url](./docs/url.md)
 + [fullscreen](./docs/fullscreen.md)
++ [event](./docs/event.md)
 
 still in development...
