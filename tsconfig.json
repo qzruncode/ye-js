@@ -10,6 +10,7 @@
       "baseUrl": ".",
       "resolveJsonModule": true, // 允许导入 json 文件
       "outDir": "lib",
+      "downlevelIteration": true,
       "paths": {
         "@/*": [ // 解析文件的相对路径
           "src/*"

@@ -10,5 +10,6 @@ This project will gradually enhance js, encapsulate common functions, make devel
 + [url](./docs/url.md)
 + [fullscreen](./docs/fullscreen.md)
 + [event](./docs/event.md)
++ [crypto](./docs/crypto.md)
 
 still in development...
