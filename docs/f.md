@@ -7,7 +7,8 @@ import { F } from 'ye-js';
 
 ### deBounce
 ```
-This function is not triggered for a specified period of time until the last function call is executed. This is usually used for mouse or pointer events to avoid multiple calls in a short period of time
+This function is not triggered for a specified period of time until the last function call is executed. 
+This is usually used for mouse or pointer events to avoid multiple calls in a short period of time
 
 example use
 
