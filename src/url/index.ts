@@ -1,7 +1,7 @@
 const Url = {
     formToParams: (form: HTMLFormElement) => {
         return '?' + Array.from(
-            new FormData(form) as any, 
+            new FormData(form) as any,
             (field: any) => field.map(encodeURIComponent).join('=')
         ).join('&');
     },
