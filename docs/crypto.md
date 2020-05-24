@@ -43,3 +43,17 @@ Crypto.MD5('叶家伟') // e5f0979d37937e39b48093cb3b3b1a4a
     ```
     Crypto.Base64.fileTobase64(file);
     ```
+
+### Classical
+
+> Classical cryptography
+
++ Shift
+    ```
+    Shift password algorithm, incoming code to move, can not exceed 65535
+
+    const enc = Crypto.Classical.Shift.encode('I am 一个机智的 ヤード農', 30); // >>丞么杘暘皢>㄂ㄚョ运
+    const dec = Crypto.Classical.Shift.decode(enc, 30);
+    console.log('%s \r\n %s', dec, enc);
+    ```
+

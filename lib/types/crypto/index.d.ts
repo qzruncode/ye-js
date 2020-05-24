@@ -9,5 +9,11 @@ export default interface Crypto {
         base64ToBuffer: (base64: string) => ArrayBuffer;
         base64ToFile: (base64: string, fileName: string) => File | null;
         fileTobase64: (file: File) => Promise<any>;
+    };
+    Classical: {
+        Shift: {
+            decode: (str: string, shift: number) => string;
+            encode: (str: string, shift: number) => string;
+        };
     }
 }
