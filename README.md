@@ -15,4 +15,9 @@ This project will gradually enhance js, encapsulate common functions, make devel
 + [object](./docs/o.md)
 + [function](./docs/f.md)
 
+### Install
+```
+npm install ye-js --save
+```
+
 still in development...
