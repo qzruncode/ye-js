@@ -19,7 +19,20 @@ const saveFlow = (fn: Function, time: number) => {
     }
 };
 
+
+const promisefy = (fn: Function, params: any[]) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const res = fn(...params);
+            resolve(res);
+        } catch (err) {
+            reject(err);
+        }
+    });
+}
+
 export default {
     deBounce,
-    saveFlow
+    saveFlow,
+    promisefy
 };

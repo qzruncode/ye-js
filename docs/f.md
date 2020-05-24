@@ -53,3 +53,17 @@ example use
         6 "ok"
         8 "ok"
 ```
+
+### promisefy
+```
+function fn(a: number, b: number) {
+    return a + b;
+}
+
+F.promisefy(fn, [1, 2]).then((res) => {
+    console.log(res);
+});
+
+output:
+    3
+```
