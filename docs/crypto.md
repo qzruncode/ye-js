@@ -43,6 +43,37 @@ Crypto.MD5('叶家伟') // e5f0979d37937e39b48093cb3b3b1a4a
     ```
     Crypto.Base64.fileTobase64(file);
     ```
+    
++ base64ToBlob
+    ```
+    Crypto.Base64.base64ToBlob(base64Str);
+    ```
+
++ blobTobase64
+    ```
+    Crypto.Base64.blobTobase64(blob);
+    ```
+
++ base64ToUrl
+    ```
+    const url = Crypto.Base64.base64ToUrl(base64Str);
+    image.src = url.value;
+    url.revoke(); // remember to release
+    ```
+
++ download
+    ```
+    Crypto.Base64.download(base64, 'test.jpeg');
+    ```
+
++ compress
+    ```
+    compress image
+
+    Crypto.Base64.compress(base64, 0.5).then(res => {
+        console.log(res); // compress base64
+    })
+    ```
 
 ### Classical
 
