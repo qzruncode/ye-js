@@ -7,7 +7,7 @@ const Fullscreen = {
                         dom.requestFullscreen();
                     } else {
                         if (document.exitFullscreen) {
-                            document.exitFullscreen(); 
+                            document.exitFullscreen();
                         }
                     }
                 })

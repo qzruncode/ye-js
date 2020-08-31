@@ -21,7 +21,7 @@ const merge = (...objs: any[]) => [...objs].reduce(
     }, {}),
     {}
 );
-        
+
 export default {
     deepClone,
     shallowClone,

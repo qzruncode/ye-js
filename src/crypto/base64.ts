@@ -36,10 +36,10 @@ const base64ToFile = (base64: string, fileName: string) => {
 const fileTobase64 = (file: File) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.onload = e => { 
+        reader.onload = e => {
             resolve(e.target?.result);
         };
-        reader.onerror = () => { 
+        reader.onerror = () => {
             reject('read fail');
         };
         reader.readAsDataURL(file);
@@ -67,10 +67,10 @@ const base64ToBlob = (base64: string) => {
 const blobTobase64 = (blob: Blob) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.onload = e => { 
+        reader.onload = e => {
             resolve(e.target?.result);
         };
-        reader.onerror = () => { 
+        reader.onerror = () => {
             reject('read fail');
         };
         reader.readAsDataURL(blob);
@@ -88,7 +88,7 @@ const base64ToUrl = (base64: string) => {
 
 const download = (base64: string, fileName: string) => {
     const u = base64ToUrl(base64);
-    const a = document.createElement("a");
+    const a = document.createElement('a');
     a.href = u.value;
     a.download = fileName;
     a.click();
@@ -98,13 +98,13 @@ const download = (base64: string, fileName: string) => {
 
 const compress = (base64: string, encoder: number) => {
     const u = base64ToUrl(base64);
-    const img = document.createElement("img");
-    const canvas = document.createElement("canvas");
+    const img = document.createElement('img');
+    const canvas = document.createElement('canvas');
     return new Promise((resolve, reject) => {
         img.onload = () => {
             canvas.width = img.width;
             canvas.height = img.height;
-            const ctx = canvas.getContext("2d");
+            const ctx = canvas.getContext('2d');
             ctx?.clearRect(0, 0, canvas.width, canvas.height);
             ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
             const tmpArr = base64.split(',');
@@ -117,7 +117,7 @@ const compress = (base64: string, encoder: number) => {
         }
         img.src = u.value;
     })
-    
+
 }
 
 export default {

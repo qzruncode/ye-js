@@ -6,7 +6,7 @@ interface Options{
 
 const Event = {
     eid: 0,
-    eventList: [] as Array<{eid: number, eventName:string, callback: EventListener, options: Options | undefined}>,
+    eventList: [] as {eid: number, eventName:string, callback: EventListener, options: Options | undefined}[],
     listen: (dom: HTMLElement, eventName: string, callback: EventListener, options?: Options) => {
         if(dom) {
             const eid = ++Event.eid;

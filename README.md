@@ -15,6 +15,7 @@ This project will gradually enhance js, encapsulate common functions, make devel
 + [object](./docs/o.md)
 + [function](./docs/f.md)
 + [geolocation](./docs/geolocation.md)
++ [storage](./docs/storage.md)
 
 ### Install
 ```

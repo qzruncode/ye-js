@@ -5,7 +5,7 @@ const Html = {
             '&': '&amp;',
             '<': '&lt;',
             '>': '&gt;',
-            "'": '&#39;',
+            '\'': '&#39;',
             '"': '&quot;',
         } as {[propName: string]: string})[tag] || tag)
     ),
@@ -16,7 +16,7 @@ const Html = {
             '&amp;': '&',
             '&lt;': '<',
             '&gt;': '>',
-            '&#39;': "'",
+            '&#39;': '\'',
             '&quot;': '"'
         } as {[propName: string]: string})[tag] || tag)
     ),

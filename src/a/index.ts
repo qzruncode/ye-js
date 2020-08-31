@@ -1,4 +1,4 @@
-const remove = (arr: Array<any>, fn: (item: any) => boolean) => {
+const remove = (arr: any[], fn: (item: any) => boolean) => {
     if(Array.isArray(arr)) {
         return arr.filter(fn).reduce((acc, val) => {
             arr.splice(arr.indexOf(val), 1);
@@ -9,7 +9,7 @@ const remove = (arr: Array<any>, fn: (item: any) => boolean) => {
     }
 }
 
-const isSorted = (arr: Array<number>) => {
+const isSorted = (arr: number[]) => {
     let direction = -(arr[0] - arr[1]);
     for (let [i, val] of arr.entries()) {
         direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
@@ -19,8 +19,8 @@ const isSorted = (arr: Array<number>) => {
 };
 
 const reducedFilter = (
-    data: Array<{[propName: string]: any}>, 
-    keys: string[], 
+    data: {[propName: string]: any}[],
+    keys: string[],
     fn: (item: any) => boolean
 ) => data.filter(fn).map(el =>
     keys.reduce((acc, key) => {
@@ -39,7 +39,7 @@ const deDuplication = (arr: any[]) => {
 }
 
 const stableSort = (
-    arr: any[], 
+    arr: any[],
     compare: (pre: any, cur: any) => 1 | 0 | -1
 ) =>
     arr

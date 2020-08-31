@@ -5,7 +5,7 @@ const MD5 = function (key: string) {
     }
 
     function AddUnsigned(lX: number, lY: number) {
-        var lX4, lY4, lX8, lY8, lResult;
+        let lX4, lY4, lX8, lY8, lResult;
         lX8 = (lX & 0x80000000);
         lY8 = (lY & 0x80000000);
         lX4 = (lX & 0x40000000);
@@ -51,14 +51,14 @@ const MD5 = function (key: string) {
     };
 
     function ConvertToWordArray(key: string) {
-        var lWordCount;
-        var lMessageLength = key.length;
-        var lNumberOfWords_temp1 = lMessageLength + 8;
-        var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
-        var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
-        var lWordArray = Array(lNumberOfWords - 1);
-        var lBytePosition = 0;
-        var lByteCount = 0;
+        let lWordCount;
+        let lMessageLength = key.length;
+        let lNumberOfWords_temp1 = lMessageLength + 8;
+        let lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+        let lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+        let lWordArray = Array(lNumberOfWords - 1);
+        let lBytePosition = 0;
+        let lByteCount = 0;
         while (lByteCount < lMessageLength) {
             lWordCount = (lByteCount - (lByteCount % 4)) / 4;
             lBytePosition = (lByteCount % 4) * 8;
@@ -74,22 +74,22 @@ const MD5 = function (key: string) {
     };
 
     function WordToHex(lValue: number) {
-        var WordToHexValue = "", WordToHexValue_temp = "", lByte, lCount;
+        let WordToHexValue = '', WordToHexValue_temp = '', lByte, lCount;
         for (lCount = 0; lCount <= 3; lCount++) {
             lByte = (lValue >>> (lCount * 8)) & 255;
-            WordToHexValue_temp = "0" + lByte.toString(16);
+            WordToHexValue_temp = '0' + lByte.toString(16);
             WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
         }
         return WordToHexValue;
     };
 
     function Utf8Encode(key: string) {
-        key = key.replace(/\r\n/g, "\n");
-        var utftext = "";
+        key = key.replace(/\r\n/g, '\n');
+        let utftext = '';
 
-        for (var n = 0; n < key.length; n++) {
+        for (let n = 0; n < key.length; n++) {
 
-            var c = key.charCodeAt(n);
+            let c = key.charCodeAt(n);
 
             if (c < 128) {
                 utftext += String.fromCharCode(c);
@@ -109,12 +109,12 @@ const MD5 = function (key: string) {
         return utftext;
     };
 
-    var x = Array();
-    var k, AA, BB, CC, DD, a, b, c, d;
-    var S11 = 7, S12 = 12, S13 = 17, S14 = 22;
-    var S21 = 5, S22 = 9, S23 = 14, S24 = 20;
-    var S31 = 4, S32 = 11, S33 = 16, S34 = 23;
-    var S41 = 6, S42 = 10, S43 = 15, S44 = 21;
+    let x = Array();
+    let k, AA, BB, CC, DD, a, b, c, d;
+    let S11 = 7, S12 = 12, S13 = 17, S14 = 22;
+    let S21 = 5, S22 = 9, S23 = 14, S24 = 20;
+    let S31 = 4, S32 = 11, S33 = 16, S34 = 23;
+    let S41 = 6, S42 = 10, S43 = 15, S44 = 21;
 
     key = Utf8Encode(key);
 
@@ -194,7 +194,7 @@ const MD5 = function (key: string) {
         d = AddUnsigned(d, DD);
     }
 
-    var temp = WordToHex(a) + WordToHex(b) + WordToHex(c) + WordToHex(d);
+    let temp = WordToHex(a) + WordToHex(b) + WordToHex(c) + WordToHex(d);
 
     return temp.toLowerCase();
 }

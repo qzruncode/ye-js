@@ -8,6 +8,7 @@ import a from './a';
 import o from './o';
 import f from './f';
 import geo from './geolocation';
+import storage from './storage';
 
 export const DesignMode: designMode;
 export const Cookies: cookies;
@@ -19,3 +20,4 @@ export const A: a;
 export const O: o;
 export const F: f;
 export const Geo: geo;
+export const Storage: storage
